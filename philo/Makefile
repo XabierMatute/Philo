@@ -6,11 +6,11 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:47:34 by xmatute-          #+#    #+#              #
-#    Updated: 2023/03/08 13:04:23 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/03/08 13:49:02 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-define HEADER
+define DEATH
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⢖⣠⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣾⣿⣿⠎⠀⠀⠹⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -78,11 +78,13 @@ define HEADER
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠿⠿⠶⠶⠤⠤⠶⠶⠒⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
 endef
-export HEADER
+export DEATH
 
 NAME := philosopher
 
 SRC :=	main.c					\
+
+HEADER := philosophers.h
 		
 WHITE = \033[0;37m
 RED = \033[0;31m
@@ -92,11 +94,11 @@ MAGENTA = \033[0;35m
 
 OBJ := $(SRC:%.c=%.o)
 
-SANI 	:= -fsanitize=address
+SANI 	:= -fsanitize=address -g3
 
-CC 		:= gcc -g3
-CFLAGS 	:= -Wall  -Wextra -Werror $(SANI) 
-# CFLAGS 	:= -Wall  -Wextra -Werror $(SANI) 
+CC 		:= gcc
+CFLAGS 	:= -Wall  -Wextra -Werror
+# CFLAGS 	:= -Wall  -Wextra -Werror $(SANI)
 
 RM 		:= rm -rf
 
@@ -107,9 +109,16 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(GREEN)Philosopher compiled...$(WHITE)"
-	@echo "$(CYAN)$$HEADER$(WHITE)"
+	@echo "$(CYAN)$$DEATH$(WHITE)"
 
-clean :
+$(OBJ) : $(SRC) $(HEADER)
+	$(CC) $(CFLAGS) -c $(SRC) -o $(OBJ)
+
+sani:
+	@echo "Compilando con opciones de seguridad..."
+	$(MAKE) CFLAGS='$(CFLAGS) $(SANI)' all
+
+clean : 
 		$(RM) $(OBJ)
 		@echo "$(RED)clean done...$(WHITE)"
 
@@ -119,4 +128,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re sani
