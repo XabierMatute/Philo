@@ -4,6 +4,9 @@ philosopher
 # VS
 .vscode
 
+# Mac
+.DS_Store
+
 # Prerequisites
 *.d
 
