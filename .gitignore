@@ -1,6 +1,9 @@
 # Binary
 philosopher
 
+# VS
+.vscode
+
 # Prerequisites
 *.d
 
