@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:47:34 by xmatute-          #+#    #+#              #
-#    Updated: 2023/03/08 13:49:02 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/03/08 14:42:25 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ export DEATH
 NAME := philosopher
 
 SRC :=	main.c					\
+		errors/argc_error.c		\
 
 HEADER := philosophers.h
 		
@@ -111,12 +112,15 @@ $(NAME) : $(OBJ)
 	@echo "$(GREEN)Philosopher compiled...$(WHITE)"
 	@echo "$(CYAN)$$DEATH$(WHITE)"
 
-$(OBJ) : $(SRC) $(HEADER)
-	$(CC) $(CFLAGS) -c $(SRC) -o $(OBJ)
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 sani:
 	@echo "Compilando con opciones de seguridad..."
 	$(MAKE) CFLAGS='$(CFLAGS) $(SANI)' all
+
+flagless:
+	$(MAKE) CFLAGS='' all
 
 clean : 
 		$(RM) $(OBJ)
@@ -128,4 +132,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all clean fclean re sani
+.PHONY : all clean fclean re sani flagless
