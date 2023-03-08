@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:47:34 by xmatute-          #+#    #+#              #
-#    Updated: 2023/03/08 18:25:06 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/03/08 18:54:05 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,8 +85,10 @@ NAME := philosopher
 SRC :=	main.c						\
 		checkinput/invalidinput.c	\
 		checkinput/isnumeric.c		\
+		checkinput/isinrange.c		\
 		errors/argc_error.c			\
-		errors/numeric_error.c			\
+		errors/numeric_error.c		\
+		errors/range_error.c		\
 		
 
 HEADER := philosophers.h
