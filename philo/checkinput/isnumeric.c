@@ -1,21 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   argc_error.c                                       :+:      :+:    :+:   */
+/*   isnumeric.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 14:09:11 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/08 18:33:15 by xmatute-         ###   ########.fr       */
+/*   Created: 2023/03/08 18:09:40 by xmatute-          #+#    #+#             */
+/*   Updated: 2023/03/08 18:23:25 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-int	argc_error(int argc)
+static int	ft_isdigit(int arg)
 {
-	printf("❌Error: Numero incorrecto de argumentos\n");
-	printf("         (Has introducido %i)\n", argc - 1);
-	printcorrectinput();
-	return (argc);
+	return (arg >= '0' && arg <= '9');
+}
+
+static int	isnumeric(char const s[])
+{
+	size_t	i;
+
+	i = 0;
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	if (!ft_isdigit(s[i]))
+		return (numeric_error(s));
+	while (ft_isdigit(s[i]))
+		i++;
+	return (1);
+}
+
+int	isnumeric2(int n, char const *s2[])
+{
+	while (n-- > 1)
+	{
+		if (!isnumeric(s2[n]))
+			return (0);
+	}
+	return (1);
 }
