@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isinrange.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 18:38:59 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/09 11:23:58 by xmatute-         ###   ########.fr       */
+/*   Created: 2023/03/09 11:23:48 by xmatute-          #+#    #+#             */
+/*   Updated: 2023/03/09 11:24:44 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-static int	isinrange(char const s[])
+int	ft_strcmp(const char *str1, const char *str2)
 {
-	if (!ft_strcmp("-2147483648", s))
-		return (1);
-	if (*s == '-' || *s == '+')
-		s++;
-	if (ft_strlen(s) < 10)
-		return (1);
-	if (ft_strlen(s) > 10)
-		return (range_error(s));
-	if (ft_strcmp("2147483647", s) < 0)
-		return (range_error(s));
-	return (1);
-}
+	size_t	i;
 
-int	isinrange2(int n, char const *s2[])
-{
-	while (n-- > 1)
+	i = 0;
+	while (((unsigned char)str1[i] || (unsigned char)str2[i]))
 	{
-		if (!isinrange(s2[n]))
-			return (0);
+		if (str1[i] != str2[i])
+			return (((unsigned char)str1[i] - (unsigned char)str2[i]));
+		i++;
 	}
-	return (1);
+	return (0);
 }

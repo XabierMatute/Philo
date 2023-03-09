@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isinrange.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 18:38:59 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/09 11:23:58 by xmatute-         ###   ########.fr       */
+/*   Created: 2023/03/09 11:20:25 by xmatute-          #+#    #+#             */
+/*   Updated: 2023/03/09 12:40:13 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-static int	isinrange(char const s[])
+static unsigned int	ft_atou(const char *str)
 {
-	if (!ft_strcmp("-2147483648", s))
-		return (1);
-	if (*s == '-' || *s == '+')
-		s++;
-	if (ft_strlen(s) < 10)
-		return (1);
-	if (ft_strlen(s) > 10)
-		return (range_error(s));
-	if (ft_strcmp("2147483647", s) < 0)
-		return (range_error(s));
-	return (1);
+	unsigned int	i;
+	unsigned int	n;
+
+	i = 0;
+	n = (str[i] - '0');
+	while ((str[++i] >= '0') && (str[i] <= '9'))
+		n = 10 * n + (str[i] - '0');
+	return (n);
 }
 
-int	isinrange2(int n, char const *s2[])
+int	ft_atoi(const char *str)
 {
-	while (n-- > 1)
-	{
-		if (!isinrange(s2[n]))
-			return (0);
-	}
-	return (1);
+	if (!ft_strcmp("-2147483648", str))
+		return (-2147483648);
+	if (str[0] == '-')
+		return ((-1) * ft_atou(str + 1));
+	if (str[0] == '+')
+		return ((+1) * ft_atou(str + 1));
+	return (ft_atou(str));
 }
