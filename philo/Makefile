@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:47:34 by xmatute-          #+#    #+#              #
-#    Updated: 2023/03/09 12:32:15 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/03/09 13:13:00 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,13 +80,14 @@ define DEATH
 endef
 export DEATH
 
-NAME := philosopher
+NAME := philosophers
 
 SRC :=	main.c						\
-		philophers.c				\
+		philosophers.c				\
 		checkinput/invalidinput.c	\
 		checkinput/isnumeric.c		\
 		checkinput/isinrange.c		\
+		checkinput/ispos.c		\
 		parse/parse.c				\
 		utils/ft_atoi.c				\
 		utils/ft_strcmp.c			\
@@ -94,6 +95,7 @@ SRC :=	main.c						\
 		errors/argc_error.c			\
 		errors/numeric_error.c		\
 		errors/range_error.c		\
+		errors/pos_error.c		\
 		
 
 HEADER := philosophers.h

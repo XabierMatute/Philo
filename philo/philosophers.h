@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 13:06:58 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/09 12:53:37 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:13:27 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		printcorrectinput(void);
 int		invalidinput(int argc, char const *argv[]);
 int		isnumeric2(int n, char const *s2[]);
 int		isinrange2(int n, char const *s2[]);
+int		is4pos(int arg[5]);
 
 /* ------------------- PARSE ---------------------*/
 int		*parse(int argc, char const *argv[]);
@@ -35,5 +36,6 @@ int		ft_atoi(const char *str);
 int		argc_error(int argc);
 int		numeric_error(char const *s);
 int		range_error(char const *s);
+int		pos_error(int i);
 
 #endif

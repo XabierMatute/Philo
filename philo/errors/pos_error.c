@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pos_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:05:22 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/09 12:57:49 by xmatute-         ###   ########.fr       */
+/*   Created: 2023/03/09 13:07:16 by xmatute-          #+#    #+#             */
+/*   Updated: 2023/03/09 13:13:24 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "../philosophers.h"
 
-int	main(int argc, char const *argv[])
+int	pos_error(int i)
 {
-	if (invalidinput(argc, argv))
-		return (1);
-	if (philosophers(parse(argc, argv)))
-		return (1);
+	printf("❌Error: Introduce solo valores positivos por favor\n");
+	printf("         (Has introducido \"%i\")\n", i);
 	return (0);
 }
