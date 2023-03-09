@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:47:34 by xmatute-          #+#    #+#              #
-#    Updated: 2023/03/08 18:54:05 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/03/09 12:32:15 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,9 +83,14 @@ export DEATH
 NAME := philosopher
 
 SRC :=	main.c						\
+		philophers.c				\
 		checkinput/invalidinput.c	\
 		checkinput/isnumeric.c		\
 		checkinput/isinrange.c		\
+		parse/parse.c				\
+		utils/ft_atoi.c				\
+		utils/ft_strcmp.c			\
+		utils/ft_strlen.c			\
 		errors/argc_error.c			\
 		errors/numeric_error.c		\
 		errors/range_error.c		\
