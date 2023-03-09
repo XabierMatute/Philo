@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:09:40 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/08 18:23:25 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/09 12:39:36 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	isnumeric(char const s[])
 		return (numeric_error(s));
 	while (ft_isdigit(s[i]))
 		i++;
+	if (s[i])
+		return (numeric_error(s));
 	return (1);
 }
 
