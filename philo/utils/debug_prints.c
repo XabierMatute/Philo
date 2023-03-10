@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 08:07:02 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 13:01:45 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:09:57 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,13 @@ void	printarg(int	arg[5])
 void	printphilo(t_philosopher	philosopher)
 {
 	printf("\nID: %i\n", philosopher.id);
-	printf("Spaghetti Time: %llu (%llu ms ago)\n", philosopher.spaghetti_time, ft_milisecond(GET) - philosopher.spaghetti_time);
+	printf("Spaghetti Time: %llu (%llu ms ago)\n", philosopher.spaghetti_time, ft_milisecond() - philosopher.spaghetti_time);
+	printf("Spaghetti left: %i\n", philosopher.spaghetti_count);
 	printf("Fork: %p\n", &(philosopher.fork));
+	if (is_death(ft_milisecond() - philosopher.spaghetti_time))
+		printf("💀\n");
+	else
+		printf("🤔\n");
 }
 
 void	printphilos(t_philosopher	*philosophers, int nop)

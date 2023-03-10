@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 13:06:58 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 12:59:35 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:05:31 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-int				philosophers(int arg[5]);
 //ARG
 enum {
 	number_of_philosophers,
@@ -27,24 +26,6 @@ enum {
 	time_to_eat,
 	time_to_sleep,
 	number_of_times_each_philosopher_must_eat,
-};
-
-typedef struct s_philosopher
-{
-	int				id;
-	uint64_t		spaghetti_time;
-	pthread_mutex_t	fork;
-}				t_philosopher;
-
-/* ------------------- INIT ---------------------*/
-t_philosopher	*philomaker(int nop);
-
-/* ------------------- TIME ---------------------*/
-int				ft_msleep(int time);
-uint64_t		ft_milisecond(int flag);
-enum {
-	GET,
-	INIT,
 };
 
 /* ------------------- CHECKINPUT ---------------------*/
@@ -56,6 +37,29 @@ int				is4pos(int arg[5]);
 
 /* ------------------- PARSE ---------------------*/
 int				*parse(int argc, char const *argv[]);
+
+/* ------------------- PHILOSOPHY ---------------------*/
+int				philosophers(int arg[5]);
+typedef struct s_philosopher
+{
+	int				id;
+	uint64_t		spaghetti_time;
+	int				spaghetti_count;
+	pthread_mutex_t	fork;
+}				t_philosopher;
+
+/* ------------------- INIT ---------------------*/
+t_philosopher	*philomaker(int nop, int c);
+int				inittimes(int arg[5]);
+
+/* ------------------- TIME ---------------------*/
+int				ft_msleep(int time);
+uint64_t		ft_milisecond(void);
+int				ms_to_eat(int t);
+int				ms_to_sleep(int t);
+
+/* ------------------- DEATH ---------------------*/
+int				is_death(int starving_time);
 
 /* ------------------- UTILS ---------------------*/
 size_t			ft_strlen(const char *s);

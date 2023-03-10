@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   freelosophers.c                                    :+:      :+:    :+:   */
+/*   inittimes.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 12:39:05 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 17:31:16 by xmatute-         ###   ########.fr       */
+/*   Created: 2023/03/10 13:37:45 by xmatute-          #+#    #+#             */
+/*   Updated: 2023/03/10 18:59:18 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-static int	asclepius(t_philosopher	philosopher)
+int	inittimes(int arg[5])
 {
-	philosopher.id = 0;
-	philosopher.spaghetti_time = 0;
-	philosopher.spaghetti_count = 0;
-	if (pthread_mutex_destroy(&(philosopher.fork)))
-		return (1);
-	return (0);
-}
-
-int	freelosophers(t_philosopher	*philosophers, int nop)
-{
-	int				i;
-
-	if (!philosophers)
-		return (1);
-	i = 0;
-	while (i < nop)
-	{
-		if (asclepius(philosophers[i]))
-			printf("❗️Error al liberar\n");
-		i++;
-	}
-	free(philosophers);
+	is_death(arg[time_to_die]);
+	ms_to_eat(arg[time_to_eat]);
+	ms_to_sleep(arg[time_to_sleep]);
 	return (0);
 }
