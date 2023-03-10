@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:47:34 by xmatute-          #+#    #+#              #
-#    Updated: 2023/03/10 08:27:26 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/03/10 10:27:21 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,7 @@ SRC :=	main.c	utils/debug_prints.c					\
 		checkinput/ispos.c			\
 		parse/parse.c				\
 		init/philomaker.c			\
+		time/ft_milisecond.c		\
 		utils/ft_atoi.c				\
 		utils/ft_strcmp.c			\
 		utils/ft_strlen.c			\
