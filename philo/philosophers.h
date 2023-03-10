@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 13:06:58 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 08:22:26 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/10 08:27:07 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int				argc_error(int argc);
 int				numeric_error(char const *s);
 int				range_error(char const *s);
 int				pos_error(int i);
+int				merror(void);
 
 /* ------------------- DEBUG ---------------------*///BORRAME
 void			printarg(int	arg[5]);
 void			printphilo(t_philosopher	philosopher);
 void			printphilos(t_philosopher	*philosophers, int nop);
-
 
 #endif

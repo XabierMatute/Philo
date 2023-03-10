@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   merror.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 12:25:41 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 08:26:44 by xmatute-         ###   ########.fr       */
+/*   Created: 2023/03/10 08:26:00 by xmatute-          #+#    #+#             */
+/*   Updated: 2023/03/10 08:26:23 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "../philosophers.h"
 
-int	philosophers(int arg[5])
+int	merror(void)
 {
-	t_philosopher	*philosopher;
-
-	if (!is4pos(arg))
-		return (1);
-	philosopher = philomaker(arg[number_of_philosophers]);
-	if (!philosopher)
-		return (merror());
-	printphilos(philosopher, arg[number_of_philosophers]);
-	return (0);
+	printf("⚠️Error de memoria\n");
+	return (1);
 }

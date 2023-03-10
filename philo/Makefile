@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:47:34 by xmatute-          #+#    #+#              #
-#    Updated: 2023/03/10 08:20:05 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/03/10 08:27:26 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,6 +97,7 @@ SRC :=	main.c	utils/debug_prints.c					\
 		errors/numeric_error.c		\
 		errors/range_error.c		\
 		errors/pos_error.c			\
+		errors/merror.c				\
 		
 
 HEADER := philosophers.h
