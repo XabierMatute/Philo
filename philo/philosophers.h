@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 13:06:58 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 12:00:49 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/10 12:59:35 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <pthread.h>
 # include <sys/time.h>
 
 int				philosophers(int arg[5]);
@@ -30,7 +31,9 @@ enum {
 
 typedef struct s_philosopher
 {
-	int		id;
+	int				id;
+	uint64_t		spaghetti_time;
+	pthread_mutex_t	fork;
 }				t_philosopher;
 
 /* ------------------- INIT ---------------------*/
@@ -40,8 +43,8 @@ t_philosopher	*philomaker(int nop);
 int				ft_msleep(int time);
 uint64_t		ft_milisecond(int flag);
 enum {
-	INIT,
 	GET,
+	INIT,
 };
 
 /* ------------------- CHECKINPUT ---------------------*/
@@ -59,12 +62,16 @@ size_t			ft_strlen(const char *s);
 int				ft_strcmp(const char *str1, const char *str2);
 int				ft_atoi(const char *str);
 
+/* ------------------- END ---------------------*/
+int				freelosophers(t_philosopher	*philosophers, int nop);
+
 /* ------------------- ERRORS ---------------------*/
 int				argc_error(int argc);
 int				numeric_error(char const *s);
 int				range_error(char const *s);
 int				pos_error(int i);
 int				merror(void);
+t_philosopher	mtxerror(void);
 
 /* ------------------- DEBUG ---------------------*///BORRAME
 void			printarg(int	arg[5]);

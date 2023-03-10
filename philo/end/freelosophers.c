@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philomaker.c                                       :+:      :+:    :+:   */
+/*   freelosophers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 07:54:02 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 12:36:38 by xmatute-         ###   ########.fr       */
+/*   Created: 2023/03/10 12:39:05 by xmatute-          #+#    #+#             */
+/*   Updated: 2023/03/10 12:55:03 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-static t_philosopher	createphilosopher(int id)
+static int	asclepius(t_philosopher	philosopher)
 {
-	t_philosopher	philosopher;
-
-	philosopher.id = id;
+	philosopher.id = 0;
 	philosopher.spaghetti_time = 0;
-	if (pthread_mutex_init(&(philosopher.fork), NULL))
-		return (mtxerror());
-	return (philosopher);
+	if (pthread_mutex_destroy(&(philosopher.fork)))
+		return (1);
+	return (0);
 }
 
-t_philosopher	*philomaker(int nop)
+int	freelosophers(t_philosopher	*philosophers, int nop)
 {
-	t_philosopher	*philosophers;
 	int				i;
 
-	philosophers = malloc(nop * sizeof(t_philosopher));
 	if (!philosophers)
-		return (0);
+		return (1);
 	i = 0;
 	while (i < nop)
 	{
-		philosophers[i] = createphilosopher(i + 1);
-		if (philosophers[i].id == 0)
-			return (free(philosophers), NULL);
+		if (asclepius(philosophers[i]))
+			printf("❗️Error al liberar\n");
 		i++;
 	}
-	return (philosophers);
+	free(philosophers);
+	return (0);
 }
