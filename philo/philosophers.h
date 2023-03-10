@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 13:06:58 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 11:52:04 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/10 12:00:49 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ typedef struct s_philosopher
 t_philosopher	*philomaker(int nop);
 
 /* ------------------- TIME ---------------------*/
-int			ft_msleep(int time);
-uint64_t	ft_milisecond(int flag);
+int				ft_msleep(int time);
+uint64_t		ft_milisecond(int flag);
 enum {
 	INIT,
 	GET,
