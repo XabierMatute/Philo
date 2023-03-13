@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 18:21:31 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/11 19:55:45 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:11:48 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char	*ft_strdup( const char *str1)
 
 int	printer(int id, int flag)
 {
-	static pthread_mutex_t	courier;
+	static pthread_mutex_t	courier = PTHREAD_MUTEX_INITIALIZER;
 	char					*message;
 
 	if (flag == INIT)

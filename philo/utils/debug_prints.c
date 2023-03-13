@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 08:07:02 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/11 20:29:31 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/13 11:51:47 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,20 @@ void	printarg(int	arg[5])
 	printf("number_of_times_each_philosopher_must_eat:  %i\n", arg[number_of_times_each_philosopher_must_eat]);
 }
 
-void	printphilo(t_philosopher	philosopher)
+void	printphilo(t_philosopher	*philosopher)
 {
-	if (is_death(ft_milisecond() - philosopher.spaghetti_time))
-		printf("\n💀");
+	printf("\n%p\n", philosopher);
+	if (is_death(ft_milisecond() - philosopher->spaghetti_time))
+		printf("💀");
 	else
-		printf("\n🤔");
-	printf("ID: %i\n", philosopher.id);
-	printf("Spaghetti Time: %llu (%llu ms ago)\n", philosopher.spaghetti_time, ft_milisecond() - philosopher.spaghetti_time);
-	printf("Spaghetti left: %i\n", philosopher.spaghetti_count);
-	printf("Fork: %p\n", &(philosopher.fork));
+		printf("🤔");
+	printf("ID: %i\n", philosopher->id);
+	printf("Spaghetti Time: %llu (%llu ms ago)\n", philosopher->spaghetti_time, ft_milisecond() - philosopher->spaghetti_time);
+	printf("Spaghetti left: %i\n", philosopher->spaghetti_count);
+	printf("Fork: %p\n", &(philosopher->fork));
 }
 
-void	printphilos(t_philosopher	*philosophers, int nop)
+void	printphilos(t_philosopher	**philosophers, int nop)
 {
 	int				i;
 

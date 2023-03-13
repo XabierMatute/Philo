@@ -6,23 +6,23 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:39:05 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 17:31:16 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:09:23 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-static int	asclepius(t_philosopher	philosopher)
+static int	asclepius(t_philosopher	*philosopher)
 {
-	philosopher.id = 0;
-	philosopher.spaghetti_time = 0;
-	philosopher.spaghetti_count = 0;
-	if (pthread_mutex_destroy(&(philosopher.fork)))
-		return (1);
-	return (0);
+	philosopher->id = 0;
+	philosopher->spaghetti_time = 0;
+	philosopher->spaghetti_count = 0;
+	pthread_mutex_unlock(&(philosopher->fork));
+	pthread_mutex_destroy(&(philosopher->fork));
+	return (free(philosopher), 0);
 }
 
-int	freelosophers(t_philosopher	*philosophers, int nop)
+int	freelosophers(t_philosopher	**philosophers, int nop)
 {
 	int				i;
 
