@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:47:34 by xmatute-          #+#    #+#              #
-#    Updated: 2023/03/13 14:55:02 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/03/13 16:26:44 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ export DEATH
 
 NAME := philosophers
 
-SRC :=	main.c	utils/debug_prints.c					\
+SRC :=	main.c						\
 		philosophers.c				\
 		checkinput/invalidinput.c	\
 		checkinput/isnumeric.c		\
@@ -92,7 +92,6 @@ SRC :=	main.c	utils/debug_prints.c					\
 		init/philomaker.c			\
 		time/ft_milisecond.c		\
 		time/ft_msleep.c			\
-		time/times.c				\
 		threads/launch.c			\
 		threads/rutine.c			\
 		threads/ft_eat.c			\
@@ -151,7 +150,7 @@ flagless:
 	$(MAKE) CFLAGS='' all
 
 normi:
-	norminette $(SRC)
+	norminette $(SRC) $(HEADER)
 
 clean : 
 		$(RM) $(OBJ)

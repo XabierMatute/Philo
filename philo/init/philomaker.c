@@ -6,13 +6,13 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 07:54:02 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/13 16:07:05 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:24:22 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-static int liberate(t_philosopher	**philosophers, int i)
+static int	liberate(t_philosopher	**philosophers, int i)
 {
 	if (!philosophers)
 		return (1);
@@ -48,7 +48,7 @@ t_philosopher	**philomaker(int nop, int c)
 	{
 		philosophers[i] = createphilosopher(i + 1, c);
 		if (!philosophers[i])
-			return (liberate(philosophers, i), NULL);//mete un liberate
+			return (liberate(philosophers, i), NULL);
 		i++;
 	}
 	return (philosophers);
