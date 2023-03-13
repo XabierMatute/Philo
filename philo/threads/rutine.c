@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:54:56 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/13 15:04:06 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:14:42 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static int	rutine(t_philosopher *philosopher, int arg[5])
 {
-	usleep(philosopher->id);
 	while (philosopher->id)
 	{
 		if (ft_eat(philosopher, arg))

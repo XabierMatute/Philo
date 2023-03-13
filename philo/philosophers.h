@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 13:06:58 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/13 12:50:25 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:05:30 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int				ft_strcmp(const char *str1, const char *str2);
 int				ft_atoi(const char *str);
 
 /* ------------------- END ---------------------*/
+int				asclepius(t_philosopher	*philosopher);
 int				freelosophers(t_philosopher	**philosophers, int nop);
 
 /* ------------------- ERRORS ---------------------*/

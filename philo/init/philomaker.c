@@ -6,11 +6,21 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 07:54:02 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/13 13:20:35 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:07:05 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
+
+static int liberate(t_philosopher	**philosophers, int i)
+{
+	if (!philosophers)
+		return (1);
+	while (i--)
+		asclepius(philosophers[i]);
+	free(philosophers);
+	return (0);
+}
 
 static t_philosopher	*createphilosopher(int id, int c)
 {
@@ -38,7 +48,7 @@ t_philosopher	**philomaker(int nop, int c)
 	{
 		philosophers[i] = createphilosopher(i + 1, c);
 		if (!philosophers[i])
-			return (free(philosophers), NULL);//mete un liberate
+			return (liberate(philosophers, i), NULL);//mete un liberate
 		i++;
 	}
 	return (philosophers);

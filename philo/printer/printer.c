@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 18:21:31 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/13 15:11:48 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:56:46 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	printer(int id, int flag)
 	static pthread_mutex_t	courier = PTHREAD_MUTEX_INITIALIZER;
 	char					*message;
 
+	if (id == 0)
+		return (1);
 	if (flag == INIT)
 		return (pthread_mutex_init(&(courier), NULL));
 	if (flag == END)
