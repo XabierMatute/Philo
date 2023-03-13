@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   spaghetti.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:05:22 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 13:26:29 by xmatute-         ###   ########.fr       */
+/*   Created: 2023/03/12 13:22:40 by xmatute-          #+#    #+#             */
+/*   Updated: 2023/03/12 13:37:52 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "../philosophers.h"
 
-int	main(int argc, char const *argv[])
+int	spaghettileft(t_philosopher	*philosophers, int arg[5])
 {
-	if (invalidinput(argc, argv))
-		return (1);
-	if (philosophers(parse(argc, argv)))
-		return (1);
+	int i;
+
+	i = 0;
+	while (i <= arg[number_of_philosophers])
+	{
+		if (philosophers[i].spaghetti_count != 0)
+		{
+			return(1);
+		}
+		i++;
+	}
 	return (0);
 }

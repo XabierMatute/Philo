@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 07:54:02 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 18:56:20 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/13 10:57:26 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_philosopher	*philomaker(int nop, int c)
 	t_philosopher	*philosophers;
 	int				i;
 
-	philosophers = malloc(nop * sizeof(t_philosopher));
+	philosophers = malloc((nop) * sizeof(t_philosopher));
 	if (!philosophers)
 		return (0);
 	i = 0;

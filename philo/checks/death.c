@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   death.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:05:22 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 13:26:29 by xmatute-         ###   ########.fr       */
+/*   Created: 2023/03/12 13:15:05 by xmatute-          #+#    #+#             */
+/*   Updated: 2023/03/12 13:40:10 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "../philosophers.h"
 
-int	main(int argc, char const *argv[])
+int	starvation_time(int spaghetti_time)
 {
-	if (invalidinput(argc, argv))
-		return (1);
-	if (philosophers(parse(argc, argv)))
-		return (1);
+	return (ft_milisecond() - spaghetti_time);
+}
+
+int	death(t_philosopher	*philosophers, int arg[5])
+{
+	int i;
+
+	i = 0;
+	while (i < arg[number_of_philosophers])
+	{
+		if (starvation_time(philosophers[i].spaghetti_time) >= arg[time_to_die])
+		{
+			printer(philosophers[i].id, DIE);
+			return(1);
+		}
+		i++;
+	}
 	return (0);
 }

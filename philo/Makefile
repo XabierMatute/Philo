@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:47:34 by xmatute-          #+#    #+#              #
-#    Updated: 2023/03/10 19:00:22 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/03/12 13:27:16 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,6 +94,15 @@ SRC :=	main.c	utils/debug_prints.c					\
 		time/ft_milisecond.c		\
 		time/ft_msleep.c			\
 		time/times.c				\
+		threads/launch.c			\
+		threads/rutine.c			\
+		threads/ft_eat.c			\
+		threads/ft_sleep.c			\
+		threads/ft_think.c			\
+		threads/forks.c				\
+		printer/printer.c			\
+		checks/death.c				\
+		checks/spaghetti.c			\
 		utils/ft_atoi.c				\
 		utils/ft_strcmp.c			\
 		utils/ft_strlen.c			\
@@ -136,8 +145,7 @@ $(NAME) : $(OBJ)
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-sani:
-	@echo "Compilando con opciones de seguridad..."
+sani: fclean
 	$(MAKE) CFLAGS='$(CFLAGS) $(SANI)' all
 
 flagless:

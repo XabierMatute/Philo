@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_think.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:05:22 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 13:26:29 by xmatute-         ###   ########.fr       */
+/*   Created: 2023/03/11 19:20:32 by xmatute-          #+#    #+#             */
+/*   Updated: 2023/03/11 19:53:11 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "../philosophers.h"
 
-int	main(int argc, char const *argv[])
-{
-	if (invalidinput(argc, argv))
-		return (1);
-	if (philosophers(parse(argc, argv)))
-		return (1);
+int	ft_think(t_philosopher philosopher)
+{	
+	if (I_AM)
+		printer(philosopher.id, THINK);
 	return (0);
 }

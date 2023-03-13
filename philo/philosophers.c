@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:25:41 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/03/10 18:59:25 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/03/12 13:41:33 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 
 int	philosophers(int arg[5])
 {
-	t_philosopher	*philosopher;
+	t_philosopher	*philosophers;
 
+	printarg(arg);
 	if (!is4pos(arg))
 		return (1);
-	philosopher = philomaker(arg[number_of_philosophers],
+	philosophers = philomaker(arg[number_of_philosophers],
 			arg[number_of_times_each_philosopher_must_eat]);
-	inittimes(arg);
-	if (!philosopher)
+	printer(0, INIT);
+	if (!philosophers)
 		return (merror());
-	printphilos(philosopher, arg[number_of_philosophers]);
-	freelosophers(philosopher, arg[number_of_philosophers]);
+	printphilos(philosophers, arg[number_of_philosophers]);
+	if (launch(philosophers, arg))
+		return (1);
+	while (!death(philosophers, arg) && spaghettileft(philosophers, arg))
+		;
+	ft_msleep(10000);
+	freelosophers(philosophers, arg[number_of_philosophers]);
 	return (0);
 }
