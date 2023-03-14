@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 12:47:34 by xmatute-          #+#    #+#              #
-#    Updated: 2023/03/13 16:26:44 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/03/14 12:01:10 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ define DEATH
 endef
 export DEATH
 
-NAME := philosophers
+NAME := philo
 
 SRC :=	main.c						\
 		philosophers.c				\
